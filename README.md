@@ -1,117 +1,119 @@
 
-# Documentação da Classe `Pessoa`
 
-A classe `Pessoa` representa uma entidade básica que contém informações sobre uma pessoa, como nome, sexo e idade. Além disso, a classe possui métodos para manipular essas informações.
 
-## Estrutura da Classe
+# Documentação do Projeto Heranca
 
-```java
-public class Pessoa {
-    private String nome, sexo;  
-    private int idade;
-    
-    public void fazerAniversario() {
-        this.idade++;
-    }
-    
-    // Métodos Especiais
-    public String getNome() { ... }
-    public void setNome(String nome) { ... }
-    public String getSexo() { ... }
-    public void setSexo(String sexo) { ... }
-    public int getIdade() { ... }
-    public void setIdade(int idade) { ... }
-    
-    @Override
-    public String toString() { ... }
-}
-```
+Este projeto é uma implementação simples de um sistema de gerenciamento de pessoas, incluindo diferentes tipos de pessoas, como alunos, funcionários e professores.
+As classes principais são `Pessoa`, `Aluno`, `Funcionario`, `Professor` e a classe `main` que executa o programa.
 
-## Atributos
+## Estrutura do Projeto
+
+### Classe `Pessoa`
+
+A classe `Pessoa` representa uma entidade básica que contém informações sobre uma pessoa.
+
+#### Atributos
 
 - `nome` (String): O nome da pessoa.
 - `sexo` (String): O sexo da pessoa.
 - `idade` (int): A idade da pessoa.
 
-## Métodos
+#### Métodos
 
-### `fazerAniversario()`
+- `fazerAniversario()`: Incrementa a idade da pessoa em 1.
+- `getNome()`: Retorna o nome da pessoa.
+- `setNome(String nome)`: Define o nome da pessoa.
+- `getSexo()`: Retorna o sexo da pessoa.
+- `setSexo(String sexo)`: Define o sexo da pessoa.
+- `getIdade()`: Retorna a idade da pessoa.
+- `setIdade(int idade)`: Define a idade da pessoa.
+- `toString()`: Retorna uma representação em string da pessoa.
 
-```java
-public void fazerAniversario()
-```
+### Classe `Aluno`
 
-Incrementa a idade da pessoa em 1.
+A classe `Aluno` estende a classe `Pessoa` e representa um aluno.
 
-### Métodos Especiais
+#### Atributos
 
-#### `getNome()`
+- `matricula` (int): O número de matrícula do aluno.
+- `curso` (String): O curso em que o aluno está matriculado.
 
-```java
-public String getNome()
-```
+#### Métodos
 
-Retorna o nome da pessoa.
+- `cancelarMatricula()`: Cancela a matrícula do aluno.
+- `getMatricula()`: Retorna o número de matrícula do aluno.
+- `setMatricula(int matricula)`: Define o número de matrícula do aluno.
+- `getCurso()`: Retorna o curso do aluno.
+- `setCurso(String curso)`: Define o curso do aluno.
 
-#### `setNome(String nome)`
+### Classe `Funcionario`
 
-```java
-public void setNome(String nome)
-```
+A classe `Funcionario` estende a classe `Pessoa` e representa um funcionário.
 
-Define o nome da pessoa.
+#### Atributos
 
-#### `getSexo()`
+- `setor` (String): O setor em que o funcionário trabalha.
+- `trabalhando` (boolean): Indica se o funcionário está trabalhando.
 
-```java
-public String getSexo()
-```
+#### Métodos
 
-Retorna o sexo da pessoa.
+- `mudarTrabalho()`: Altera o estado de trabalho do funcionário.
+- `getSetor()`: Retorna o setor do funcionário.
+- `setSetor(String setor)`: Define o setor do funcionário.
+- `isTrabalhando()`: Retorna o estado de trabalho do funcionário.
+- `setTrabalhando(boolean trabalhando)`: Define o estado de trabalho do funcionário.
 
-#### `setSexo(String sexo)`
+### Classe `Professor`
 
-```java
-public void setSexo(String sexo)
-```
+A classe `Professor` estende a classe `Pessoa` e representa um professor.
 
-Define o sexo da pessoa.
+#### Atributos
 
-#### `getIdade()`
+- `especialidade` (String): A especialidade do professor.
+- `salario` (float): O salário do professor.
 
-```java
-public int getIdade()
-```
+#### Métodos
 
-Retorna a idade da pessoa.
+- `receberAumento(float aumento)`: Aumenta o salário do professor.
+- `getEspecialidade()`: Retorna a especialidade do professor.
+- `setEspecialidade(String especialidade)`: Define a especialidade do professor.
+- `getSalario()`: Retorna o salário do professor.
+- `setSalario(float salario)`: Define o salário do professor.
 
-#### `setIdade(int idade)`
+### Classe `main`
 
-```java
-public void setIdade(int idade)
-```
+A classe `main` contém o método principal que executa o programa.
 
-Define a idade da pessoa.
-
-### `toString()`
-
-```java
-@Override
-public String toString()
-```
-
-Retorna uma representação em string da pessoa, incluindo nome, sexo e idade.
-
-## Exemplo de Uso
+#### Exemplo de Uso
 
 ```java
-Pessoa pessoa = new Pessoa();
-pessoa.setNome("João");
-pessoa.setSexo("Masculino");
-pessoa.setIdade(30);
-
-System.out.println(pessoa); // Saída: Pessoa{nome=João, sexo=Masculino, idade=30}
-
-pessoa.fazerAniversario();
-System.out.println(pessoa.getIdade()); // Saída: 31
+public static void main(String[] args) {
+    Pessoa pessoa1 = new Pessoa();
+    Aluno aluno1 = new Aluno();
+    Professor professor1 = new Professor();
+    Funcionario funcionario1 = new Funcionario();
+    
+    pessoa1.setNome("Joao");
+    pessoa1.setIdade(30);
+    pessoa1.setSexo("M");
+    
+    aluno1.setNome("Maria");
+    aluno1.setCurso("Informatica");
+    aluno1.setIdade(18);
+    aluno1.setSexo("F");
+    
+    professor1.setNome("Claudio");
+    professor1.setEspecialidade("Ingles");
+    professor1.setIdade(24);
+    professor1.setSalario(2900.98f);
+    professor1.setSexo("M");
+    
+    funcionario1.setNome("Marcia");
+    
+    System.out.println(pessoa1.toString());
+    System.out.println(aluno1.toString());
+    System.out.println(professor1.toString());
+    System.out.println(funcionario1.toString());
+}
 ```
+
